@@ -218,7 +218,7 @@ const formatEnclosure = (enclosure: string | Enclosure, mimeCategory = "image") 
     return { _attributes: { url: sanitize(enclosure), length: 0, type: `${mimeCategory}/${type}` } };
   }
 
-  const type = sanitize(new URL(enclosure.url).pathname.split(".").slice(-1)[0]);
+  const type = sanitize(new URL(enclosure.url)).pathname.split(".").slice(-1)[0];
   return { _attributes: { length: 0, type: `${mimeCategory}/${type}`, ...enclosure } };
 };
 
